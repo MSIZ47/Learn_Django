@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .models import *
+from blog.models import Post
 
 def home(req):
+    last_six_posts = Post.objects.filter(status =True)[0:6]
     cheap = CheapPackage.objects.all()
     luxuray = LuxuryPackage.objects.all()
-    camp = CampingPackage.objects.all()
+    camping = CampingPackage.objects.all()
 
-    context = {'cheap':cheap,'luxuray':luxuray,'camp':camp}
+    context = {'cheap':cheap,'luxuray':luxuray,'camping':camping,'last':last_six_posts}
     return render(req,"home/index.html",context=context)
 
 def about(req):

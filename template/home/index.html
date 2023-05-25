@@ -178,7 +178,7 @@
 				<div class="single-price">
 					<h4>Luxury Packages</h4>
 					<ul class="price-list">
-						{% for item in luxuray%}
+						{% for item in luxuray %}
 						<li class="d-flex justify-content-between align-items-center">
 							<span>{{item.city}}</span>
 							<a href="#" class="price-btn">${{item.price}}</a>
@@ -191,30 +191,12 @@
 				<div class="single-price">
 					<h4>Camping Packages</h4>
 					<ul class="price-list">
+					{% for item in camping %}
 						<li class="d-flex justify-content-between align-items-center">
-							<span>New York</span>
-							<a href="#" class="price-btn">$1500</a>
+							<span>{{item.city}}</span>
+							<a href="#" class="price-btn">{{item.price}}</a>
 						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Maldives</span>
-							<a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Sri Lanka</span>
-							<a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Nepal</span>
-							<a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Thiland</span>
-							<a href="#" class="price-btn">$1500</a>
-						</li>
-						<li class="d-flex justify-content-between align-items-center">
-							<span>Singapore</span>
-							<a href="#" class="price-btn">$1500</a>
-						</li>
+					{% endfor %}
 					</ul>
 				</div>
 			</div>
@@ -266,157 +248,32 @@
 		</div>
 		<div class="row">
 			<div class="active-recent-blog-carusel">
-				<div class="single-recent-blog-post item">
+			<div class="single-recent-blog-post item">
+			{% for post in last %}
 					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
+						<img class="img-fluid" src={{post.image.url}} alt="">
 					</div>
 					<div class="details">
 						<div class="tags">
 							<ul>
+							{% for tag in post.tag.all %}
 								<li>
-									<a href="#">Travel</a>
+									<a href="#">{{tag.name}}</a>
 								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Low Cost Advertising</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Creative Outdoor Ads</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">It's Classified How To Utilize Free</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Low Cost Advertising</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">Creative Outdoor Ads</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
-				<div class="single-recent-blog-post item">
-					<div class="thumb">
-						<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
-					</div>
-					<div class="details">
-						<div class="tags">
-							<ul>
-								<li>
-									<a href="#">Travel</a>
-								</li>
-								<li>
-									<a href="#">Life Style</a>
-								</li>
-							</ul>
-						</div>
-						<a href="#">
-							<h4 class="title">It's Classified How To Utilize Free</h4>
-						</a>
-						<p>
-							Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-							farmer.
-						</p>
-						<h6 class="date">31st January,2018</h6>
-					</div>
-				</div>
+							{% endfor %}
 
+							</ul>
+						</div>
+						<a href="#">
+							<h4 class="title">{{post.title}}</h4>
+						</a>
+						<p>
+						{{post.content|truncatewords:3}}...
+						</p>
+						<h6 class="date">{{post.published_date}}</h6>
+					</div>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>

@@ -111,11 +111,11 @@
 						<div class="feature-img">
 							<img class="img-fluid" src="{{post.image.url}}" alt="">
 						</div>
-						<a class="posts-title" href="blog-single.html">
+						<a class="posts-title" href="{% url 'blog:blog_single' pid=post.id %}">
 							<h3>{{post.title}}</h3>
 						</a>
 						<p class="excert">
-							{{post.content}}
+							{{post.short_content}}
 						</p>
 						<a href="blog-single.html" class="primary-btn">View More</a>
 					</div>
@@ -124,7 +124,7 @@
 				<nav class="blog-pagination justify-content-center d-flex">
 					<ul class="pagination">
 						<li class="page-item">
-							{% if posts.has_previous %}
+							{% if posts.has_previous %} 
 							<a href="?page={{posts.previous_page_number}}" class="page-link" aria-label="Previous">
 								<span aria-hidden="true">
 									<span class="lnr lnr-chevron-left"></span>
