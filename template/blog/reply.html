@@ -1,0 +1,28 @@
+{% extends "inherit/base.html" %}
+{% load static %}
+{% block 'content' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply</title>
+</head>
+<body>
+        <form method="post"><br><br><br><br>
+			{% csrf_token %}
+			<input type="hidden"  name="which_comment" value={{comment.id}}>
+			<div class="form-group form-inline">
+				<div class="form-group col-lg-6 col-md-12 name">
+					<input type="text" class="form-control" name="message" placeholder="Enter Message "
+						onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+				</div>
+            </div>  
+			<button type="submit">Reply</button>
+		</form>
+</body>
+</html>
+
+{% endblock 'content' %}
