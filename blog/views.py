@@ -4,7 +4,8 @@ from advertisment.models import AdvertisModel
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from.forms import CommentsForm,ReplyForm,CreatPostForm
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -127,7 +128,7 @@ def edit(req,cid):
                form_post.save()
           return redirect('/blog')
      
-
+@login_required
 def create_post(req):
      if req.method=="GET":
           form_get = CreatPostForm()

@@ -40,8 +40,16 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-sm-6 col-6 header-top-left">
                         <ul>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Logout</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><img src={{request.user.image.url}} alt=""></li>
+                            <li><a href="{% url 'accounts:login' %}">Logged as {{request.user.username}}</a></li>
+                            <li><a href="{% url 'password_change' %}">Change Password</a></li>
+                            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                            <li><a href="{% url 'accounts:signup' %}">SignUp</a></li>
+                        {% endif %}
+
                         </ul>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-6 header-top-right">

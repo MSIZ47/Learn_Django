@@ -11,11 +11,51 @@
     <title>Create_Post</title>
 </head>
 <body>
-        <form method="post"><br><br><br><br>
-			{% csrf_token %}
-            {{form.as_p}}
-			<button type="submit">Create</button>
-		</form>
+    <br><br><br><br><br><br><br><br>
+    <form method="post" >
+        {% csrf_token %}
+
+        <div>
+            <label for="{{ form.image.id_for_label }}">Image:</label>
+            {{ form.image }}
+            
+        </div>
+        {% if request.user.is_authenticated %}
+        <div>
+            <label for="id_author">Author:</label>
+            <select name="author" required="" id="id_author">
+                <option value="" selected="">---------</option>
+                <option value="{{request.user.id}}">{{request.user.username}}</option>
+             </select>
+        </div>
+        {% endif %}
+        <div>
+            <label for="{{ form.category.id_for_label }}">Category:</label>
+            {{ form.category }}
+        </div>
+
+        <div>
+            <label for="{{ form.tag.id_for_label }}">Tags:</label>
+            {{ form.tag }}
+        </div>
+
+        <div>
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title }}
+        </div>
+
+        <div>
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+
+        <div>
+            <label for="{{ form.status.id_for_label }}">Status:</label>
+            {{ form.status }}
+        </div>
+
+        <button type="submit">Create Post</button>
+    </form>
 </body>
 </html>
 
